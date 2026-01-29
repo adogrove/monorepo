@@ -1,0 +1,92 @@
+{
+  "name": "@stouder-io/adonis-geolite2",
+  "description": "Maxmind's GeoLite2 integration for Adonis",
+  "version": "2.1.2",
+  "engines": {
+    "node": ">=24.0.0"
+  },
+  "type": "module",
+  "files": [
+    "build"
+  ],
+  "exports": {
+    ".": "./build/index.js",
+    "./types": "./build/src/types.js",
+    "./geolite2_provider": "./build/providers/geolite2_provider.js"
+  },
+  "scripts": {
+    "clean": "del-cli build",
+    "copy:templates": "copyfiles \"stubs/**/*.stub\" build",
+    "typecheck": "tsc --noEmit",
+    "biome": "biome check .",
+    "biome:write": "biome check --write .",
+    "quick:test": "node --import=./tsnode.esm.js --enable-source-maps bin/test.ts",
+    "pretest": "yarn lint && yarn typecheck",
+    "test": "c8 yarn quick:test",
+    "prebuild": "yarn lint && yarn clean",
+    "build": "tsc",
+    "postbuild": "yarn copy:templates",
+    "dev": "tsc --watch",
+    "version": "yarn build"
+  },
+  "keywords": [
+    "adonisjs",
+    "adonis",
+    "geolite2",
+    "maxmind",
+    "geolocation",
+    "ip",
+    "ip2location",
+    "ip2geo",
+    "ip2country",
+    "ip2city",
+    "ip2region",
+    "ip2isp",
+    "ip2asn"
+  ],
+  "author": "Xavier Stouder <xavier@stouder.io>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/stouder-io/adonis-packages",
+    "directory": "packages/geolite2"
+  },
+  "bugs": {
+    "url": "https://github.com/stouder-io/adonis-packages/issues"
+  },
+  "homepage": "https://github.com/stouder-io/adonis-packages",
+  "license": "AGPL-3.0-or-later",
+  "dependencies": {
+    "geolite2-redist": "^3.1.2",
+    "maxmind": "^5.0.3"
+  },
+  "devDependencies": {
+    "@adonisjs/assembler": "^7.8.2",
+    "@adonisjs/core": "^6.19.3",
+    "@adonisjs/tsconfig": "^1.4.1",
+    "@biomejs/biome": "2.3.13",
+    "@japa/assert": "^4.2.0",
+    "@japa/file-system": "^3.0.0",
+    "@japa/runner": "^5.3.0",
+    "@swc/core": "^1.15.11",
+    "@types/node": "^25.1.0",
+    "c8": "^10.1.3",
+    "ts-node-maintained": "^10.9.6",
+    "typescript": "^5.9.3"
+  },
+  "peerDependencies": {
+    "@adonisjs/core": "*"
+  },
+  "publishConfig": {
+    "access": "public",
+    "tag": "latest"
+  },
+  "c8": {
+    "reporter": [
+      "text",
+      "html"
+    ],
+    "exclude": [
+      "tests/**"
+    ]
+  }
+}

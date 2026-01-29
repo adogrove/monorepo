@@ -1,0 +1,44 @@
+name: ⚛ CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest]
+        node-version:
+          - 20.x
+          - 22.x
+          - 24.x
+          - 25.x
+    steps:
+      - name: ⬇️ Checkout repository
+        uses: actions/checkout@v4
+      - name: ⭐ Setup node
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'yarn'
+      - name: 🧰 Enable Corepack
+        run: corepack enable
+      - name: 📦 Install dependencies
+        run: yarn install --frozen-lockfile
+      - name: 🧹 Lint
+        run: yarn biome
+      - name: 🧾 Typecheck
+        run: yarn typecheck
+      - name: 🏗️ Build
+        run: yarn build
+      - name: 🧪 Test
+        run: yarn test

@@ -1,0 +1,9 @@
+{{{
+  exports({ to: app.configPath('geolite2.ts') })
+}}}
+import { defineConfig } from '@stouder-io/adonis-geolite2'
+
+export default defineConfig({
+  downloadDirectory: '../dbs',
+  cache: 6000
+})

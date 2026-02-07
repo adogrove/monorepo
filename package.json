@@ -1,21 +1,24 @@
 {
-  "name": "@stouder-io/adonis-packages",
+  "name": "@adogrove/monorepo",
   "private": true,
   "scripts": {
     "build": "yarn workspaces foreach --all -ptv run build",
-    "dev": "yarn workspaces foreach --all -ptv run dev",
     "biome": "biome check .",
-    "biome:fix": "biome check --write .",
+    "biome:write": "biome check --write .",
     "test": "yarn workspaces foreach --all -ptv run test",
     "typecheck": "yarn workspaces foreach --all -ptv run typecheck",
-    "format": "yarn workspaces foreach --all -ptv run format"
+    "format": "yarn workspaces foreach --all -ptv run format",
+    "docs:dev": "yarn workspace docs dev",
+    "docs:build": "yarn workspace docs build",
+    "docs:preview": "yarn workspace docs preview"
   },
   "packageManager": "yarn@4.12.0",
   "engines": {
     "node": ">=24.0.0"
   },
   "workspaces": [
-    "packages/*"
+    "packages/*",
+    "docs"
   ],
   "devDependencies": {
     "@biomejs/biome": "2.3.13",

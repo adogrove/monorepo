@@ -11,7 +11,7 @@ test.group('Configure', (group) => {
     await assert.fileExists('config/geolite2.ts')
     await assert.fileContains(
       'adonisrc.ts',
-      '@stouder-io/adonis-geolite2/geolite2_provider',
+      '@adogrove/adonis-geolite2/geolite2_provider',
     )
   })
 })

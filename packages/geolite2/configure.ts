@@ -8,6 +8,6 @@ export async function configure(command: ConfigureCommand) {
 
   // add provider and directory to rc file
   await codemods.updateRcFile((rcFile) => {
-    rcFile.addProvider('@stouder-io/adonis-geolite2/geolite2_provider')
+    rcFile.addProvider('@adogrove/adonis-geolite2/geolite2_provider')
   })
 }

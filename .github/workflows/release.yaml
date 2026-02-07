@@ -28,11 +28,9 @@ jobs:
         run: yarn install --frozen-lockfile
       - name: 🔨 Build packages
         run: yarn build
-      - uses: changesets/action@e0145edc7d9d8679003495b11f87bd8ef63c0cba # v1.5.3
+      - uses: changesets/action@v1
         with:
           version: yarn changeset version
           publish: yarn changeset publish
           commit: 'chore: release'
           title: 'Release dashboard'
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }}

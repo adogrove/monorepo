@@ -53,7 +53,7 @@ export default class GeoLite2Manager {
         maxmind.open<T>(path, {
           cache: { max: this.config.cache },
           watchForUpdates: true,
-          watchForUpdatesNonPersistent: false,
+          watchForUpdatesNonPersistent: true,
         }),
       this.config.downloadDirectory,
     )

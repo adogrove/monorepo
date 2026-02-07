@@ -19,8 +19,6 @@
   ],
   "devDependencies": {
     "@biomejs/biome": "2.3.13",
-    "@changesets/cli": "^2.29.8",
-    "@japa/assert": "^4.2.0",
-    "@japa/runner": "^5.3.0"
+    "@changesets/cli": "^2.29.8"
   }
 }

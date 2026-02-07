@@ -1,0 +1,38 @@
+name: '🚀 Packages releases'
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  changelog:
+    name: '🚀 Packages releases'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - name: ⬇️ Checkout repository
+        uses: actions/checkout@v5
+      - name: ⭐ Setup node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 25
+          registry-url: 'https://registry.npmjs.org'
+      - name: 🔑 Update npm for Trusted Publishers
+        run: npm install -g npm@latest
+      - name: 🧰 Enable Corepack
+        run: corepack enable
+      - name: 📦 Install Node dependencies
+        run: yarn install --frozen-lockfile
+      - name: 🔨 Build packages
+        run: yarn build
+      - uses: changesets/action@e0145edc7d9d8679003495b11f87bd8ef63c0cba # v1.5.3
+        with:
+          version: yarn changeset version
+          publish: yarn changeset publish
+          commit: 'chore: release'
+          title: 'Release dashboard'
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }}

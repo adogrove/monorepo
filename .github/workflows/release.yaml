@@ -23,6 +23,10 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
       - name: 🔑 Update npm for Trusted Publishers
         run: npm install -g npm@latest
+      - name: Setup npm for publishing
+        run: |
+          echo "//registry.npmjs.org/:_authToken=" >> ~/.npmrc
+          echo "registry=https://registry.npmjs.org/" >> ~/.npmrc
       - name: 🧰 Enable Corepack
         run: corepack enable
       - name: 📦 Install Node dependencies

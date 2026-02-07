@@ -34,3 +34,5 @@ jobs:
           publish: yarn changeset publish
           commit: 'chore: release'
           title: 'Release dashboard'
+        env:
+          NPM_TOKEN: ''

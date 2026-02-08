@@ -1,0 +1,51 @@
+name: '📚 Docs deploy'
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    name: 🔨 Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: ⬇️ Checkout repository
+        uses: actions/checkout@v5
+      - name: ⭐ Setup node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 25
+      - name: 📖 Setup pages
+        uses: actions/configure-pages@v5
+      - name: 📦 Install Node dependencies
+        run: yarn install --frozen-lockfile
+      - name: 🔨 Build Vitepress
+        run: yarn build
+      - name: ⬆️ Upload artifact
+        id: deployment
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: docs/.vitepress/dist
+
+  deploy:
+    name: 🚀 Deploy
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: 🚀 Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

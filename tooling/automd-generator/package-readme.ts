@@ -48,7 +48,7 @@ export default defineGenerator({
     const packageLicense = packageJson.license ?? 'N/A'
     const packageBugs = bugsUrl(packageJson.bugs)
 
-    const content = dedent`
+    const contents = dedent`
       <div align="center">
 
         # ${packageName}
@@ -66,7 +66,7 @@ export default defineGenerator({
       </div>
     `
     return {
-      contents: content,
+      contents,
     }
   },
 })

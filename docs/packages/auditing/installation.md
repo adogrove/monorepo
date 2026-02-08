@@ -6,18 +6,22 @@ You can install it using the following ace command to automagically configure it
 node ace add @adogrove/adonis-auditing
 ```
 
-Alternatively, you can install it manually using your favorite package manager and running the configure command:
+Alternatively, you can install it manually.
+<!-- automd:installGroup -->
+
 ::: code-group
 ```sh [npm]
-npm install @adogrove/adonis-auditing
-node ace configure @adogrove/adonis-auditing
-```
-```sh [pnpm]
-pnpm install @adogrove/adonis-auditing
-node ace configure @adogrove/adonis-auditing
+npm install @adogrove/auditing
+node ace configure @adogrove/auditing
 ```
 ```sh [yarn]
-yarn add @adogrove/adonis-auditing
-node ace configure @adogrove/adonis-auditing
+yarn add @adogrove/auditing
+node ace configure @adogrove/auditing
 ```
-:::
+```sh [pnpm]
+pnpm add @adogrove/auditing
+node ace configure @adogrove/auditing
+```
+  :::
+
+<!-- /automd -->

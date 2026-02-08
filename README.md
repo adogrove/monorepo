@@ -1,13 +1,7 @@
 <div align="center">
-<h1>Adogrove</h1>
-<h2>Hand-grown utility packages for AdonisJS</h2>
-</div>
-
-<div align="center">
-
+# Adogrove
+## Hand-grown utility packages for AdonisJS
 #### [📚 Documentation](https://adogrove.stouder.io/) • [✍🏻 Repository](https://github.com/adogrove/monorepo)
-
-<br />
 
 <!-- automd:packages -->
 

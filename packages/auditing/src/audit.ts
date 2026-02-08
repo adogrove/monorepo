@@ -1,6 +1,22 @@
+import logger from '@adonisjs/core/services/logger'
 import { BaseModel, column } from '@adonisjs/lucid/orm'
 import type { ModelObject } from '@adonisjs/lucid/types/model'
 import type { DateTime } from 'luxon'
+
+function auditConsumer(value: unknown) {
+  if (value === null || value === undefined) {
+    return null
+  }
+  if (typeof value === 'object') {
+    return value
+  }
+  if (typeof value === 'string') {
+    return JSON.parse(value)
+  }
+
+  logger.warn('Failed to parse audit value', value)
+  return null
+}
 
 export default class Audit extends BaseModel {
   @column({ isPrimary: true })
@@ -22,21 +38,21 @@ export default class Audit extends BaseModel {
   declare auditableId: number
 
   @column({
-    consume: (value) => (value ? JSON.parse(value) : null),
+    consume: auditConsumer,
     prepare: (value) => (value ? JSON.stringify(value) : null),
     serialize: (value) => (value ? value : null),
   })
   declare oldValues: ModelObject | null
 
   @column({
-    consume: (value) => (value ? JSON.parse(value) : null),
+    consume: auditConsumer,
     prepare: (value) => (value ? JSON.stringify(value) : null),
     serialize: (value) => (value ? value : null),
   })
   declare newValues: ModelObject | null
 
   @column({
-    consume: (value) => (value ? JSON.parse(value) : null),
+    consume: auditConsumer,
     prepare: (value) => (value ? JSON.stringify(value) : null),
     serialize: (value) => (value ? value : null),
   })

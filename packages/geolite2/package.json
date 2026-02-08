@@ -1,6 +1,6 @@
 {
   "name": "@adogrove/adonis-geolite2",
-  "description": "Maxmind's GeoLite2 integration for Adonis",
+  "description": "Maxmind's GeoLite2 integration for Adonis,
   "version": "2.1.4",
   "engines": {
     "node": ">=24.0.0"
@@ -17,6 +17,8 @@
     "./geolite2_provider": "./build/providers/geolite2_provider.js"
   },
   "scripts": {
+    "biome": "biome check .",
+    "biome:write": "biome check --write .",
     "clean": "del-cli build",
     "copy:templates": "copyfiles \"stubs/**/*.stub\" build",
     "typecheck": "tsc --noEmit",
@@ -53,7 +55,7 @@
   "bugs": {
     "url": "https://github.com/adogrove/monorepo/issues"
   },
-  "homepage": "https://github.com/adogrove/monorepo",
+  "homepage": "https://adogrove.stouder.io/packages/geolite2",
   "license": "AGPL-3.0-or-later",
   "dependencies": {
     "geolite2-redist": "^3.1.2",

@@ -18,6 +18,8 @@
     "./types": "./build/src/types.js"
   },
   "scripts": {
+    "biome": "biome check .",
+    "biome:write": "biome check --write .",
     "clean": "del-cli build",
     "copy:templates": "copyfiles \"stubs/**/*.stub\" build",
     "typecheck": "tsc --noEmit",
@@ -55,7 +57,7 @@
   "bugs": {
     "url": "https://github.com/adogrove/monorepo/issues"
   },
-  "homepage": "https://github.com/adogrove/monorepo",
+  "homepage": "https://adogrove.stouder.io/packages/auditing",
   "license": "AGPL-3.0-or-later",
   "devDependencies": {
     "@adonisjs/assembler": "^7.8.2",

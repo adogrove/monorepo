@@ -3,8 +3,8 @@
 layout: home
 
 hero:
-  name: "Adogrove"
-  text: "Hand-grown utility packages for AdonisJS"
+  name: Adogrove
+  text: Hand-grown utility packages for AdonisJS
 
 features:
   - title: Auditing

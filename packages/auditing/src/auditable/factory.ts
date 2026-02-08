@@ -1,4 +1,4 @@
-import type { EmitterService } from '@adonisjs/core/types'
+import type { ApplicationService, EmitterService } from '@adonisjs/core/types'
 import {
   afterCreate,
   afterDelete,
@@ -26,12 +26,44 @@ export interface AuditsCursor extends Promise<Audit[]> {
   last: () => Promise<Audit | null>
 }
 
+const emitterCache = new WeakMap<
+  ApplicationService['container'],
+  EmitterService
+>()
+
+const auditingCache = new WeakMap<
+  ApplicationService['container'],
+  AuditingService
+>()
+
+async function getServices() {
+  const app = await import('@adonisjs/core/services/app').then((m) => m.default)
+
+  const emitter = emitterCache.get(app.container)
+  const auditing = auditingCache.get(app.container)
+
+  if (emitter !== undefined && auditing !== undefined) {
+    return { emitter, auditing }
+  }
+
+  const [resolvedEmitter, resolvedAuditing] = await Promise.all([
+    emitter ?? app.container.make('emitter'),
+    auditing ?? app.container.make('auditing.manager'),
+  ])
+
+  emitterCache.set(app.container, resolvedEmitter)
+  auditingCache.set(app.container, resolvedAuditing)
+
+  return { emitter: resolvedEmitter, auditing: resolvedAuditing }
+}
+
 export function withAuditable() {
   return <T extends NormalizeConstructor<typeof BaseModel>>(superclass: T) => {
     class ModelWithAudit extends superclass {
       audits() {
         const audits = Audit.query()
           .where('auditableType', this.constructor.name)
+          // biome-ignore lint/suspicious/noExplicitAny: wip
           .where('auditableId', (this as any).id)
         const promise = Promise.resolve(audits.clone())
         Object.defineProperty(promise, 'first', {
@@ -53,10 +85,12 @@ export function withAuditable() {
           ])
         }
 
+        // biome-ignore lint/suspicious/noExplicitAny: <wip>
         if (audit.auditableId !== (this as any).id) {
           throw new E_AUDITABLE_WRONG_INSTANCE([
+            // biome-ignore lint/suspicious/noExplicitAny: <wip>
             (this as any).id,
-            '' + audit.auditableId,
+            `${audit.auditableId}`,
           ])
         }
 
@@ -97,22 +131,19 @@ export function withAuditable() {
       }
 
       async $audit(event: EventType, modelInstance: ModelWithAudit) {
-        const emitter = await import('@adonisjs/core/services/emitter').then(
-          (m) => m.default,
-        )
+        const { emitter, auditing } = await getServices()
 
-        const auditing = await import('../../services/auditing.js').then(
-          (m) => m.default,
-        )
-
-        const auditedUser = await auditing.getUserForContext()
-        const metadata = await auditing.getMetadataForContext()
+        const [auditedUser, metadata] = await Promise.all([
+          auditing.getUserForContext(),
+          auditing.getMetadataForContext(),
+        ])
 
         const audit = new Audit()
         audit.userType = auditedUser?.type ?? null
         audit.userId = auditedUser?.id ?? null
         audit.event = event
         audit.auditableType = modelInstance.constructor.name
+        // biome-ignore lint/suspicious/noExplicitAny: any
         audit.auditableId = (modelInstance as any).id
         audit.oldValues = event === 'create' ? null : this.$auditValuesToSave
         audit.newValues = event === 'delete' ? null : this.$attributes

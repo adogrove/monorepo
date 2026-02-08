@@ -27,12 +27,16 @@ test.group('BaseModel with auditable', () => {
 
     assert.lengthOf(await book.audits(), 1)
     const audit = await book.audits().first()
+    if (audit === null) {
+      assert.fail('Audit record should not be null')
+      return
+    }
     assert.isNotNull(audit)
-    assert.equal(audit!.event, 'create')
-    assert.equal(audit!.auditableType, 'Book')
-    assert.equal(audit!.auditableId, book.id)
-    assert.isNull(audit!.oldValues)
-    assert.deepEqual(audit!.newValues, { id: book.id, name: 'The Hobbit' })
+    assert.equal(audit.event, 'create')
+    assert.equal(audit.auditableType, 'Book')
+    assert.equal(audit.auditableId, book.id)
+    assert.isNull(audit.oldValues)
+    assert.deepEqual(audit.newValues, { id: book.id, name: 'The Hobbit' })
   })
 
   test('update event', async ({ assert }) => {
@@ -58,15 +62,19 @@ test.group('BaseModel with auditable', () => {
 
     assert.lengthOf(await book.audits(), 2)
     const audit = await book.audits().last()
-    assert.isNotNull(audit)
-    assert.equal(audit!.event, 'update')
-    assert.equal(audit!.auditableType, 'Book')
-    assert.equal(audit!.auditableId, book.id)
-    assert.deepEqual(audit!.newValues, {
+    if (audit === null) {
+      assert.fail('Audit record should not be null')
+      return
+    }
+
+    assert.equal(audit.event, 'update')
+    assert.equal(audit.auditableType, 'Book')
+    assert.equal(audit.auditableId, book.id)
+    assert.deepEqual(audit.newValues, {
       id: book.id,
       name: 'The Lord of the Rings',
     })
-    assert.deepEqual(audit!.oldValues, { id: book.id, name: 'The Hobbit' })
+    assert.deepEqual(audit.oldValues, { id: book.id, name: 'The Hobbit' })
   })
 
   test('delete event', async ({ assert }) => {
@@ -114,6 +122,7 @@ test.group('BaseModel with auditable', () => {
     }
 
     const book = new Book()
+    // biome-ignore lint/style/noNonNullAssertion: purposefully set non-nullable to null
     book.name = null!
     await assert.rejects(book.save)
 
@@ -183,6 +192,11 @@ test.group('BaseModel with auditable', () => {
     await movie.save()
 
     const firstVersion = await movie.audits().first()
+    if (firstVersion === null) {
+      assert.fail('Audit record should not be null')
+      return
+    }
+
     assert.throws(() => book.transitionTo(firstVersion, 'old'))
   })
 
@@ -209,7 +223,12 @@ test.group('BaseModel with auditable', () => {
     await bookB.save()
 
     const firstVersion = await bookA.audits().first()
-    assert.throws(() => bookB.transitionTo(firstVersion!, 'old'))
+    if (firstVersion === null) {
+      assert.fail('Audit record should not be null')
+      return
+    }
+
+    assert.throws(() => bookB.transitionTo(firstVersion, 'old'))
   })
 
   test('transition to null attributes', async ({ assert }) => {
@@ -229,7 +248,12 @@ test.group('BaseModel with auditable', () => {
     await book.save()
 
     const firstVersion = await book.audits().first()
-    assert.throws(() => book.transitionTo(firstVersion!, 'old'))
+    if (firstVersion === null) {
+      assert.fail('Audit record should not be null')
+      return
+    }
+
+    assert.throws(() => book.transitionTo(firstVersion, 'old'))
   })
 
   test('transition to, audit has more attributes', async ({ assert }) => {
@@ -250,8 +274,14 @@ test.group('BaseModel with auditable', () => {
     await book.save()
 
     const firstVersion = await book.audits().first()
-    firstVersion!.newValues!.extra = 'extra'
-    assert.throws(() => book.transitionTo(firstVersion!, 'new'))
+    if (firstVersion === null) {
+      assert.fail('Audit record should not be null')
+      return
+    }
+
+    // biome-ignore lint/style/noNonNullAssertion: purposefully set an extra property
+    firstVersion.newValues!.extra = 'extra'
+    assert.throws(() => book.transitionTo(firstVersion, 'new'))
   })
 
   test('revert an update', async ({ assert }) => {

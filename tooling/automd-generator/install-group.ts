@@ -22,7 +22,7 @@ export default defineGenerator({
         issues: [`Could not find package name in ${packagePath}.`],
       }
     }
-    const packageName = `@adogrove/${match[1]}`
+    const packageName = `@adogrove/adonis-${match[1]}`
 
     const configureCommand = `node ace configure ${packageName}`
 

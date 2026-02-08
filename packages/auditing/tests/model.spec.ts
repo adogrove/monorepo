@@ -1,11 +1,12 @@
 import { compose } from '@adonisjs/core/helpers'
+import type { AllowedEventTypes } from '@adonisjs/events/types'
 import { BaseModel, column } from '@adonisjs/lucid/orm'
 import { test } from '@japa/runner'
 import Audit from '../src/audit.js'
 import Auditable from '../src/auditable/mixin.js'
 import { resetTables, setupApp } from './helper.js'
 
-test.group('BaseModel with auditable', (group) => {
+test.group('BaseModel with auditable', () => {
   test('create event', async ({ assert }) => {
     const { db } = await setupApp()
     await resetTables(db)
@@ -124,7 +125,7 @@ test.group('BaseModel with auditable', (group) => {
     const { db, emitter } = await setupApp()
     await resetTables(db)
 
-    const eventStack: string[] = []
+    const eventStack: AllowedEventTypes[] = []
     emitter.onAny((event) => {
       eventStack.push(event)
     })
@@ -182,7 +183,7 @@ test.group('BaseModel with auditable', (group) => {
     await movie.save()
 
     const firstVersion = await movie.audits().first()
-    assert.throws(() => book.transitionTo(firstVersion!, 'old'))
+    assert.throws(() => book.transitionTo(firstVersion, 'old'))
   })
 
   test('transition to wrong instance', async ({ assert }) => {

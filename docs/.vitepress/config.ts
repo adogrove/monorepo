@@ -18,8 +18,49 @@ const sidebarContent = [
     text: 'Auditing',
     link: '/packages/auditing',
     items: [
-      { text: 'Introduction', link: '' },
-      { text: 'Usage', link: '/usage' },
+      {
+        text: 'Introduction',
+        link: '/packages/auditing',
+      },
+      {
+        text: 'Installation',
+        link: '/packages/auditing/installation',
+      },
+      {
+        text: 'Configuration',
+        items: [
+          {
+            text: 'General configuration',
+            link: '/packages/auditing/configuration/general-configuration',
+          },
+        ],
+      },
+      {
+        text: 'Basic usage',
+        items: [
+          {
+            text: 'Model setup',
+            link: '/packages/auditing/basic-usage/model-setup',
+          },
+          {
+            text: 'Getting audits',
+            link: '/packages/auditing/basic-usage/getting-audits',
+          },
+        ],
+      },
+      {
+        text: 'Advanced usage',
+        items: [
+          {
+            text: 'Audit resolvers',
+            link: '/packages/auditing/advanced-usage/audit-resolvers',
+          },
+          {
+            text: 'User resolver',
+            link: '/packages/auditing/advanced-usage/user-resolver',
+          },
+        ],
+      },
     ],
   },
 ]
@@ -56,8 +97,11 @@ export default defineConfig({
       { icon: 'github', link: 'https://github.com/vuejs/vitepress' },
     ],
 
-    lastUpdated: true,
-    editLink: true,
+    lastUpdated: {},
+    editLink: {
+      pattern: ({ filePath }) =>
+        `https://github.com/adogrove/monorepo/edit/main/docs/${filePath}`,
+    },
     footer: {
       message: 'Released under the AGPL-3.0-or-later License.',
       copyright: 'Copyright © 2026 Xavier Stouder.',

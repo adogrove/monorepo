@@ -1,0 +1,11 @@
+{{{
+  exports({ to: app.makePath(path, 'url_resolver.ts') })
+}}}
+import { HttpContext } from '@adonisjs/core/http'
+import { Resolver } from '@adogrove/adonis-auditing'
+
+export default class UrlResolver implements Resolver {
+  async resolve(ctx: HttpContext) {
+    return ctx.request.url(true)
+  }
+}

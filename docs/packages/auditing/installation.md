@@ -11,16 +11,16 @@ Alternatively, you can install it manually.
 
 ::: code-group
 ```sh [npm]
-npm install @adogrove/auditing
-node ace configure @adogrove/auditing
+npm install @adogrove/adonis-auditing
+node ace configure @adogrove/adonis-auditing
 ```
 ```sh [yarn]
-yarn add @adogrove/auditing
-node ace configure @adogrove/auditing
+yarn add @adogrove/adonis-auditing
+node ace configure @adogrove/adonis-auditing
 ```
 ```sh [pnpm]
-pnpm add @adogrove/auditing
-node ace configure @adogrove/auditing
+pnpm add @adogrove/adonis-auditing
+node ace configure @adogrove/adonis-auditing
 ```
   :::
 

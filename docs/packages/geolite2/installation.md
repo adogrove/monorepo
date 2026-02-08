@@ -11,16 +11,16 @@ Alternatively, you can install it manually.
 
 ::: code-group
 ```sh [npm]
-npm install @adogrove/geolite2
-node ace configure @adogrove/geolite2
+npm install @adogrove/adonis-geolite2
+node ace configure @adogrove/adonis-geolite2
 ```
 ```sh [yarn]
-yarn add @adogrove/geolite2
-node ace configure @adogrove/geolite2
+yarn add @adogrove/adonis-geolite2
+node ace configure @adogrove/adonis-geolite2
 ```
 ```sh [pnpm]
-pnpm add @adogrove/geolite2
-node ace configure @adogrove/geolite2
+pnpm add @adogrove/adonis-geolite2
+node ace configure @adogrove/adonis-geolite2
 ```
   :::
 

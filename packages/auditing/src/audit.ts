@@ -1,4 +1,3 @@
-import logger from '@adonisjs/core/services/logger'
 import { BaseModel, column } from '@adonisjs/lucid/orm'
 import type { ModelObject } from '@adonisjs/lucid/types/model'
 import type { DateTime } from 'luxon'
@@ -14,7 +13,7 @@ function auditConsumer(value: unknown) {
     return JSON.parse(value)
   }
 
-  logger.warn('Failed to parse audit value', value)
+  console.warn('Failed to parse audit value', value)
   return null
 }
 

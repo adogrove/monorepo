@@ -159,7 +159,7 @@ test.group('BaseModel with auditable', () => {
     assert.include(eventStack, 'audit:create')
     assert.include(eventStack, 'audit:update')
     assert.include(eventStack, 'audit:delete')
-  }).tags(['@events'])
+  })
 
   test('transition to wrong types', async ({ assert }) => {
     const { db } = await setupApp()

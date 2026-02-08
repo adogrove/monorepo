@@ -7,7 +7,9 @@
   },
   "type": "module",
   "files": [
-    "build"
+    "build",
+    "!build/tests",
+    "!build/bin"
   ],
   "exports": {
     ".": "./build/index.js",

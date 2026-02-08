@@ -7,11 +7,9 @@ hero:
   text: "Hand-grown utility packages for AdonisJS"
 
 features:
-  - title: Feature A
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature B
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature C
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
+  - title: Auditing
+    details: Audit your Lucid models with ease.
+  - title: GeoLite2
+    details: MaxMind's GeoLite2 free database support for AdonisJS
 ---
 

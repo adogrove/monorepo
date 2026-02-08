@@ -83,6 +83,25 @@ console.log(JSON.stringify(sidebar, null, 2))
 export default defineConfig({
   title: 'Adogrove',
   description: 'Hand-grown utility packages for AdonisJS',
+
+  head: [
+    ['meta', { property: 'og:title', content: 'Adogrove' }],
+    ['meta', { property: 'og:site_name', content: 'Adogrove' }],
+    ['meta', { property: 'og:type', content: 'website' }],
+    [
+      'meta',
+      {
+        property: 'og:description',
+        content: 'Adogrove - Hand-grown utility packages for AdonisJS.',
+      },
+    ],
+    ['meta', { property: 'og:url', content: 'https://adogrove.github.io/' }],
+  ],
+
+  lang: 'en-US',
+
+  lastUpdated: true,
+
   themeConfig: {
     nav: [
       {
@@ -90,17 +109,16 @@ export default defineConfig({
         items: sidebarContent.map(({ text, link }) => ({ text, link })),
       },
     ],
-
     sidebar,
-
     socialLinks: [
       { icon: 'github', link: 'https://github.com/vuejs/vitepress' },
     ],
-
-    lastUpdated: {},
+    search: {
+      provider: 'local',
+    },
     editLink: {
-      pattern: ({ filePath }) =>
-        `https://github.com/adogrove/monorepo/edit/main/docs/${filePath}`,
+      pattern: 'https://github.com/adogrove/monorepo/edit/main/docs/:path',
+      text: 'Edit this page on GitHub',
     },
     footer: {
       message: 'Released under the AGPL-3.0-or-later License.',

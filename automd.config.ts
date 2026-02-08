@@ -1,10 +1,11 @@
 import type { Config } from 'automd'
-import packages from './tooling/automd-generator/package'
+import packageReadme from './tooling/automd-generator/package-readme'
+import packagesTable from './tooling/automd-generator/packages-table'
 
-/** @type {import("automd").Config} */
 export default {
-  input: ['README.md', 'packages/*/README.md'],
+  input: ['packages/*/README.md'],
   generators: {
-    packages,
+    packagesTable,
+    packageReadme,
   },
 } satisfies Config

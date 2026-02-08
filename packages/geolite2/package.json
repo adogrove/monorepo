@@ -1,6 +1,6 @@
 {
   "name": "@adogrove/adonis-geolite2",
-  "description": "Maxmind's GeoLite2 integration for Adonis,
+  "description": "Maxmind's GeoLite2 integration for Adonis.",
   "version": "2.1.4",
   "engines": {
     "node": ">=24.0.0"

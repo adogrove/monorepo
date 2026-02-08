@@ -1,6 +1,6 @@
 # Installation
 
-The Adonis Auditing package is available on [npm](https://www.npmjs.com/package/@adogrove/adonis-auditing).
+The `@adogrove/adonis-auditing` package is available on [npm](https://www.npmjs.com/package/@adogrove/adonis-auditing).
 You can install it using the following ace command to automagically configure it:
 ```sh
 node ace add @adogrove/adonis-auditing

@@ -7,7 +7,9 @@
   },
   "type": "module",
   "files": [
-    "build"
+    "build",
+    "!build/tests",
+    "!build/bin"
   ],
   "exports": {
     ".": "./build/index.js",
@@ -66,6 +68,7 @@
     ]
   },
   "devDependencies": {
+    "@adonisjs/core": "^6.20.0",
     "@adonisjs/i18n": "^2.2.3",
     "@adonisjs/lucid": "^21.8.2",
     "@biomejs/biome": "^2.3.14",

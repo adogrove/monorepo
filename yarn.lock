@@ -58,6 +58,28 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@adogrove/adonis-translatable@workspace:packages/translatable":
+  version: 0.0.0-use.local
+  resolution: "@adogrove/adonis-translatable@workspace:packages/translatable"
+  dependencies:
+    "@adonisjs/core": "npm:^6.20.0"
+    "@adonisjs/i18n": "npm:^2.2.3"
+    "@adonisjs/lucid": "npm:^21.8.2"
+    "@biomejs/biome": "npm:^2.3.14"
+    "@japa/assert": "npm:^4.2.0"
+    "@japa/file-system": "npm:^3.0.0"
+    "@japa/runner": "npm:^5.3.0"
+    "@swc/core": "npm:^1.15.11"
+    "@types/node": "npm:^25.2.2"
+    c8: "npm:^10.1.3"
+    ts-node-maintained: "npm:^10.9.6"
+    typescript: "npm:^5.9.3"
+  peerDependencies:
+    "@adonisjs/core": ^6.2.0
+    "@adonisjs/lucid": ^20.3.0 || ^21.0.0
+  languageName: unknown
+  linkType: soft
+
 "@adogrove/monorepo@workspace:.":
   version: 0.0.0-use.local
   resolution: "@adogrove/monorepo@workspace:."
@@ -161,7 +183,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@adonisjs/core@npm:^6.19.3":
+"@adonisjs/core@npm:^6.19.3, @adonisjs/core@npm:^6.20.0":
   version: 6.20.0
   resolution: "@adonisjs/core@npm:6.20.0"
   dependencies:
@@ -2212,27 +2234,6 @@ __metadata:
   checksum: 10c0/8391bbfa04e9ea1677119b463f9a1413024a83319d271f5eacbc64dcd6d05394f092b876a5e47612eb98b4b55c1abe6c1b16270462ad4ac0f21311a1736e540f
   languageName: node
   linkType: hard
-
-"@stouder-io/adonis-translatable@workspace:packages/translatable":
-  version: 0.0.0-use.local
-  resolution: "@stouder-io/adonis-translatable@workspace:packages/translatable"
-  dependencies:
-    "@adonisjs/i18n": "npm:^2.2.3"
-    "@adonisjs/lucid": "npm:^21.8.2"
-    "@biomejs/biome": "npm:^2.3.14"
-    "@japa/assert": "npm:^4.2.0"
-    "@japa/file-system": "npm:^3.0.0"
-    "@japa/runner": "npm:^5.3.0"
-    "@swc/core": "npm:^1.15.11"
-    "@types/node": "npm:^25.2.2"
-    c8: "npm:^10.1.3"
-    ts-node-maintained: "npm:^10.9.6"
-    typescript: "npm:^5.9.3"
-  peerDependencies:
-    "@adonisjs/core": ^6.2.0
-    "@adonisjs/lucid": ^20.3.0 || ^21.0.0
-  languageName: unknown
-  linkType: soft
 
 "@swc/core-darwin-arm64@npm:1.15.11":
   version: 1.15.11

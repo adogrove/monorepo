@@ -19,7 +19,7 @@
   "scripts": {
     "biome": "biome check .",
     "biome:write": "biome check --write .",
-    "clean": "del-cli build",
+    "clean": "del-cli build coverage",
     "copy:templates": "copyfiles \"stubs/**/*.stub\" build",
     "typecheck": "tsc --noEmit",
     "quick:test": "node --import=./tsnode.esm.js --enable-source-maps bin/test.ts",
@@ -84,7 +84,7 @@
   "c8": {
     "reporter": [
       "text",
-      "html"
+      "json-summary"
     ],
     "exclude": [
       "tests/**"

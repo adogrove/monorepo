@@ -95,7 +95,7 @@
   "c8": {
     "reporter": [
       "text",
-      "html"
+      "json-summary"
     ],
     "exclude": [
       "tests/**"

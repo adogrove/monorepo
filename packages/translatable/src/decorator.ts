@@ -2,17 +2,21 @@ import type { BaseModel } from '@adonisjs/lucid/orm'
 import type { ColumnOptions } from '@adonisjs/lucid/types/model'
 import Translation from './translation.js'
 
-export type TranslatedOptions = {}
-
 export type TranslatedDecorator = (
-  options?: TranslatedOptions & Partial<ColumnOptions>,
-) => <TKey extends string, TTarget extends { [K in TKey]: Translation }>(
+  options?: Partial<ColumnOptions>,
+) => <
+  TKey extends string,
+  TTarget extends InstanceType<typeof BaseModel> & { [K in TKey]: Translation },
+>(
   target: TTarget,
   propertyKey: TKey,
 ) => void
 
 const decorator: TranslatedDecorator = (options) => {
-  return function decorateAsColumn(target: any, property: string) {
+  return function decorateAsColumn(
+    target: InstanceType<typeof BaseModel> & { [key: string]: Translation },
+    property: string,
+  ) {
     const Model = target.constructor as typeof BaseModel
     Model.boot()
 

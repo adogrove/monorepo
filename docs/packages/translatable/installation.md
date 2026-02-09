@@ -22,6 +22,6 @@ node ace configure @adogrove/adonis-translatable
 pnpm add @adogrove/adonis-translatable
 node ace configure @adogrove/adonis-translatable
 ```
-:::
+  :::
 
 <!-- /automd -->

@@ -1,4 +1,3 @@
-import { mkdir } from 'node:fs/promises'
 import { join } from 'node:path'
 import { Emitter } from '@adonisjs/core/events'
 import { IgnitorFactory } from '@adonisjs/core/factories'
@@ -7,18 +6,15 @@ import type { ApplicationService } from '@adonisjs/core/types'
 import { defineConfig, formatters, loaders } from '@adonisjs/i18n'
 import { Database } from '@adonisjs/lucid/database'
 import { BaseModel } from '@adonisjs/lucid/orm'
-import { getActiveTest } from '@japa/runner'
+import type { Test } from '@japa/runner/core'
 
 export const BASE_URL = new URL('./tmp/', import.meta.url)
 
-const IMPORTER = (filePath: string) => {
-  if (filePath.startsWith('./') || filePath.startsWith('../')) {
-    return import(new URL(filePath, BASE_URL).href)
-  }
-  return import(filePath)
-}
+export async function createApp(test: Test) {
+  const { context } = test
+  const { fs } = context
+  await fs.mkdir(fs.basePath, { recursive: true })
 
-export async function createApp(baseUrl: string) {
   const ignitor = new IgnitorFactory()
     .withCoreConfig()
     .withCoreProviders()
@@ -28,7 +24,7 @@ export async function createApp(baseUrl: string) {
           formatter: formatters.icu(),
           loaders: [
             loaders.fs({
-              location: baseUrl,
+              location: BASE_URL,
             }),
           ],
         }),
@@ -37,9 +33,7 @@ export async function createApp(baseUrl: string) {
         providers: [() => import('@adonisjs/i18n/i18n_provider')],
       },
     })
-    .create(BASE_URL, {
-      importer: IMPORTER,
-    })
+    .create(fs.baseUrl)
 
   const app = ignitor.createApp('web')
   await app.init()
@@ -47,14 +41,7 @@ export async function createApp(baseUrl: string) {
   return app
 }
 
-export async function createDatabase(app: ApplicationService) {
-  const test = getActiveTest()
-  if (!test) {
-    throw new Error('Cannot use "createDatabase" outside of a Japa test')
-  }
-
-  await mkdir(test.context.fs.basePath)
-
+export async function createDatabase(app: ApplicationService, test: Test) {
   const logger = new LoggerFactory().create()
   const emitter = new Emitter(app)
   const db = new Database(
@@ -62,7 +49,7 @@ export async function createDatabase(app: ApplicationService) {
       connection: 'primary',
       connections: {
         primary: {
-          client: 'sqlite3',
+          client: 'better-sqlite3',
           connection: {
             filename: join(test.context.fs.basePath, 'db.sqlite3'),
           },
@@ -79,41 +66,9 @@ export async function createDatabase(app: ApplicationService) {
 }
 
 export async function createTables(db: Database) {
-  const test = getActiveTest()
-  if (!test) {
-    throw new Error('Cannot use "createTables" outside of a Japa test')
-  }
-
-  test.cleanup(async () => {
-    await db.connection().schema.dropTable('posts')
-  })
-  await db.connection().schema.createTable('posts', (table) => {
+  await db.connection().schema.dropTableIfExists('books')
+  await db.connection().schema.createTable('books', (table) => {
     table.increments('id')
-    table.string('author').notNullable()
     table.json('title').notNullable()
-    table.json('body').notNullable()
-    table.timestamps(true)
   })
-  await db
-    .connection()
-    .table('posts')
-    .insert({
-      author: 'John Doe',
-      title: { en: 'Hello, world', fr: 'Bonjour, monde' },
-      body: {
-        en: 'Lorem ipsum dolor sit amet',
-        fr: 'Lorem ipsum dolor sit amet',
-      },
-    })
-  await db
-    .connection()
-    .table('posts')
-    .insert({
-      author: 'John Doe',
-      title: { en: 'Foo', fr: 'Bar' },
-      body: {
-        en: 'Lorem ipsum dolor sit amet',
-        fr: 'Lorem ipsum dolor sit amet',
-      },
-    })
 }

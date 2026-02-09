@@ -63,6 +63,18 @@ const sidebarContent = [
       },
     ],
   },
+  {
+    text: 'Translatable',
+    link: '/packages/translatable',
+    items: [
+      { text: 'Introduction', link: '/packages/translatable' },
+      {
+        text: 'Installation',
+        link: '/packages/translatable/installation',
+      },
+      { text: 'Usage', link: '/packages/translatable/usage' },
+    ],
+  },
 ]
 
 const sidebar = sidebarContent.reduce((acc, { text, link, items }) => {

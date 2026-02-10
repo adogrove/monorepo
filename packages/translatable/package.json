@@ -1,7 +1,7 @@
 {
   "name": "@adogrove/adonis-translatable",
   "description": "Translatable fields for AdonisJS models.",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "engines": {
     "node": ">=20.6.0"
   },

@@ -37,7 +37,7 @@ test.group('Translation', () => {
     const entry = Translation.fromDbResponse({
       en: 'Hello, world',
       fr: 'Bonjour, monde',
-    })!
+    })
     assert.equal(entry.getOrFail('en'), 'Hello, world')
     assert.equal(entry.getOrFail('fr'), 'Bonjour, monde')
     assert.throws(() => entry.getOrFail('es'))
@@ -47,7 +47,7 @@ test.group('Translation', () => {
     const entry = Translation.fromDbResponse({
       en: 'Hello, world',
       fr: 'Bonjour, monde',
-    })!
+    })
     assert.deepEqual(entry.toObject(), {
       en: 'Hello, world',
       fr: 'Bonjour, monde',

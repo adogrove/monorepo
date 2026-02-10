@@ -12,6 +12,7 @@
   <img src="https://img.shields.io/npm/l/@adogrove/adonis-auditing?color=blueviolet&style=for-the-badge" alt="license of @adogrove/adonis-auditing is AGPL-3.0-or-later" />
   <img src="https://img.shields.io/npm/dt/@adogrove/adonis-auditing?style=for-the-badge" alt="npm downloads of @adogrove/adonis-auditing">
   <img src="https://img.shields.io/bundlephobia/minzip/@adogrove/adonis-auditing?style=for-the-badge" alt="npm bundle size of @adogrove/adonis-auditing" />
+  <img src="https://img.shields.io/badge/coverage-92%25-orange?style=for-the-badge" alt="npm bundle size of @adogrove/adonis-auditing" />
   
   This project is part of [adogrove](https://adogrove.stouder.io/) and licensed under [AGPL-3.0-or-later](LICENSE).
 </div>

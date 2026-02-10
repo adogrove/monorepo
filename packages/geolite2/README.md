@@ -12,6 +12,7 @@
   <img src="https://img.shields.io/npm/l/@adogrove/adonis-geolite2?color=blueviolet&style=for-the-badge" alt="license of @adogrove/adonis-geolite2 is AGPL-3.0-or-later" />
   <img src="https://img.shields.io/npm/dt/@adogrove/adonis-geolite2?style=for-the-badge" alt="npm downloads of @adogrove/adonis-geolite2">
   <img src="https://img.shields.io/bundlephobia/minzip/@adogrove/adonis-geolite2?style=for-the-badge" alt="npm bundle size of @adogrove/adonis-geolite2" />
+  <img src="https://img.shields.io/badge/coverage-100%25-brightgreen?style=for-the-badge" alt="npm bundle size of @adogrove/adonis-geolite2" />
   
   This project is part of [adogrove](https://adogrove.stouder.io/) and licensed under [AGPL-3.0-or-later](LICENSE).
 </div>

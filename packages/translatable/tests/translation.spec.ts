@@ -27,7 +27,7 @@ test.group('Translation', () => {
     const entry = Translation.fromDbResponse({
       en: 'Hello, world',
       fr: 'Bonjour, monde',
-    })!
+    })
     assert.equal(entry.get('en'), 'Hello, world')
     assert.equal(entry.get('fr'), 'Bonjour, monde')
     assert.isUndefined(entry.get('es'))

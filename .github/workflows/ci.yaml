@@ -40,9 +40,9 @@ jobs:
         run: yarn typecheck
       - name: 🏗️ Build
         run: yarn build
+      - name: 🧪 Test
+        run: yarn test
       - name: 📝 Run automd
         run: yarn automd
       - name: 🔍 Check automd output is up to date
         run: git diff --exit-code -- '*.md' || (echo "❌ README files are out of date. Run 'yarn automd' locally and commit the changes." && exit 1)
-      - name: 🧪 Test
-        run: yarn test

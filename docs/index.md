@@ -11,5 +11,7 @@ features:
     details: Audit your Lucid models with ease.
   - title: GeoLite2
     details: MaxMind's GeoLite2 free database support for AdonisJS
+  - title: Translatable
+    details: Translatable fields for Lucid models.
 ---
 

@@ -1,6 +1,6 @@
 {
   "name": "@adogrove/adonis-translatable",
-  "description": "Translatable fields for AdonisJS models.",
+  "description": "Translatable fields for Lucid models.",
   "version": "1.1.1",
   "engines": {
     "node": ">=20.6.0"

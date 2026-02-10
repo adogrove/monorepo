@@ -4,6 +4,7 @@
   "scripts": {
     "build": "yarn workspaces foreach --all -ptv run build",
     "biome": "yarn workspaces foreach --all -ptv run biome",
+    "biome:strict": "yarn workspaces foreach --all -ptv run biome:strict",
     "biome:write": "yarn workspaces foreach --all -ptv run biome:write",
     "test": "yarn workspaces foreach --all -ptv run test",
     "typecheck": "yarn workspaces foreach --all -ptv run typecheck",

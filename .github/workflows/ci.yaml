@@ -35,7 +35,7 @@ jobs:
       - name: 📦 Install dependencies
         run: yarn install --frozen-lockfile
       - name: 🧹 Lint
-        run: yarn biome
+        run: yarn biome:strict
       - name: 🧾 Typecheck
         run: yarn typecheck
       - name: 🏗️ Build

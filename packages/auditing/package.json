@@ -19,6 +19,7 @@
   },
   "scripts": {
     "biome": "biome check .",
+    "biome:strict": "biome check --error-on-warnings .",
     "biome:write": "biome check --write .",
     "clean": "del-cli build",
     "copy:templates": "copyfiles \"stubs/**/*.stub\" build",

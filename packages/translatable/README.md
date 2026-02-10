@@ -3,7 +3,7 @@
 <div align="center">
 
   # @adogrove/adonis-translatable
-  ### Translatable fields for AdonisJS models.
+  ### Translatable fields for Lucid models.
   #### [📚 Documentation](https://adogrove.stouder.io/packages/geolite2) • [✍🏻 Source](https://github.com/adogrove/monorepo/packages/translatable) • [✍🏻 Issues](https://github.com/adogrove/monorepo/issues)
   
   <a href="https://www.npmjs.com/package/@adogrove/adonis-translatable">

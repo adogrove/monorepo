@@ -1,0 +1,79 @@
+{
+  "name": "@adogrove/adonis-cap",
+  "description": "Adonis integration for Cap, a lightweight, modern open-source CAPTCHA alternative designed using SHA-256 PoW.",
+  "version": "0.0.1",
+  "engines": {
+    "node": ">=24.6.0"
+  },
+  "type": "module",
+  "files": [],
+  "exports": {
+    ".": "./build/index.js",
+    "./stores": "./build/src/stores/index.js",
+    "./store": "./build/src/stores/store.js",
+    "./cap_provider": "./build/src/providers/cap_provider.js",
+    "./controller": "./build/src/controllers/cap_controller.js",
+    "./services/main": "./build/services/cap.js"
+  },
+  "scripts": {
+    "biome": "biome check .",
+    "biome:write": "biome check --write .",
+    "clean": "del-cli build coverage",
+    "copy:templates": "copyfiles \"stubs/**/*.stub\" build",
+    "typecheck": "tsc --noEmit",
+    "quick:test": "node --import=./tsnode.esm.js --enable-source-maps bin/test.ts",
+    "pretest": "yarn biome && yarn typecheck",
+    "test": "c8 yarn quick:test",
+    "prebuild": "yarn biome && yarn clean",
+    "build": "tsc",
+    "postbuild": "yarn copy:templates",
+    "dev": "tsc --watch",
+    "version": "yarn build"
+  },
+  "keywords": [],
+  "author": "Xavier Stouder <xavier@stouder.io>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/adogrove/monorepo",
+    "directory": "packages/cap"
+  },
+  "bugs": {
+    "url": "https://github.com/adogrove/monorepo/issues"
+  },
+  "homepage": "https://adogrove.stouder.io/packages/cap",
+  "license": "AGPL-3.0-or-later",
+  "publishConfig": {
+    "access": "public",
+    "tag": "latest"
+  },
+  "c8": {
+    "reporter": [
+      "text",
+      "json-summary"
+    ],
+    "exclude": [
+      "tests/**"
+    ]
+  },
+  "peerDependencies": {
+    "@adonisjs/core": "^6.2.0"
+  },
+  "devDependencies": {
+    "@adonisjs/assembler": "^7.8.2",
+    "@adonisjs/core": "^6.12.0",
+    "@adonisjs/tsconfig": "^1.3.0",
+    "@japa/assert": "^3.0.0",
+    "@japa/file-system": "^3.0.0",
+    "@japa/runner": "^3.1.4",
+    "@swc/core": "^1.6.3",
+    "@types/node": "^20.14.5",
+    "c8": "^10.1.2",
+    "copyfiles": "^2.4.1",
+    "del-cli": "^5.1.0",
+    "ts-node-maintained": "^10.9.4",
+    "typescript": "^5.4.5"
+  },
+  "dependencies": {
+    "@cap.js/server": "^4.0.5"
+  }
+}

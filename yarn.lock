@@ -49,6 +49,7 @@ __metadata:
     "@japa/runner": "npm:^3.1.4"
     "@swc/core": "npm:^1.6.3"
     "@types/node": "npm:^20.14.5"
+    "@vinejs/vine": "npm:^4.3.0"
     c8: "npm:^10.1.2"
     copyfiles: "npm:^2.4.1"
     del-cli: "npm:^5.1.0"
@@ -56,6 +57,10 @@ __metadata:
     typescript: "npm:^5.4.5"
   peerDependencies:
     "@adonisjs/core": ^6.2.0
+    "@vinejs/vine": ^3.0.0 || ^4.0.0
+  peerDependenciesMeta:
+    "@vinejs/vine":
+      optional: true
   languageName: unknown
   linkType: soft
 
@@ -2396,6 +2401,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@standard-schema/spec@npm:^1.1.0":
+  version: 1.1.0
+  resolution: "@standard-schema/spec@npm:1.1.0"
+  checksum: 10c0/d90f55acde4b2deb983529c87e8025fa693de1a5e8b49ecc6eb84d1fd96328add0e03d7d551442156c7432fd78165b2c26ff561b970a9a881f046abb78d6a526
+  languageName: node
+  linkType: hard
+
 "@swc/core-darwin-arm64@npm:1.15.11":
   version: 1.15.11
   resolution: "@swc/core-darwin-arm64@npm:1.15.11"
@@ -2781,6 +2793,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/validator@npm:^13.15.10":
+  version: 13.15.10
+  resolution: "@types/validator@npm:13.15.10"
+  checksum: 10c0/3e2e65fcd37dd6961ca3fd0535293d0c42f5911dc3ca44b96f458835e6db2392b678ccbb0c9815d8c0a14e653439e6c62c7b8758a6cd1d6e390551c9e56618ac
+  languageName: node
+  linkType: hard
+
 "@types/web-bluetooth@npm:^0.0.21":
   version: 0.0.21
   resolution: "@types/web-bluetooth@npm:0.0.21"
@@ -2808,6 +2827,31 @@ __metadata:
   version: 1.3.0
   resolution: "@ungap/structured-clone@npm:1.3.0"
   checksum: 10c0/0fc3097c2540ada1fc340ee56d58d96b5b536a2a0dab6e3ec17d4bfc8c4c86db345f61a375a8185f9da96f01c69678f836a2b57eeaa9e4b8eeafd26428e57b0a
+  languageName: node
+  linkType: hard
+
+"@vinejs/compiler@npm:^4.1.3":
+  version: 4.1.3
+  resolution: "@vinejs/compiler@npm:4.1.3"
+  checksum: 10c0/0df4e92bbca5bea6a94135d78f886d0f5c1a5676d7e9965288b161d6857a43c656a0a17d862e6707c017b586085f7b81f9f62523f6028b067d7dc5bcc3890e72
+  languageName: node
+  linkType: hard
+
+"@vinejs/vine@npm:^4.3.0":
+  version: 4.3.0
+  resolution: "@vinejs/vine@npm:4.3.0"
+  dependencies:
+    "@poppinss/macroable": "npm:^1.1.0"
+    "@poppinss/types": "npm:^1.2.1"
+    "@standard-schema/spec": "npm:^1.1.0"
+    "@types/validator": "npm:^13.15.10"
+    "@vinejs/compiler": "npm:^4.1.3"
+    camelcase: "npm:^9.0.0"
+    dayjs: "npm:^1.11.19"
+    dlv: "npm:^1.1.3"
+    normalize-url: "npm:^8.1.1"
+    validator: "npm:^13.15.26"
+  checksum: 10c0/23b376524bc5fce113e6307122139c03caa1da1e5bfec689526764a5a0977cf44317da8e520ea6cccbf9495a10a2c115db04cabb52d91388473f67137af09184
   languageName: node
   linkType: hard
 
@@ -3598,6 +3642,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"camelcase@npm:^9.0.0":
+  version: 9.0.0
+  resolution: "camelcase@npm:9.0.0"
+  checksum: 10c0/7171e1540b9b227cab9d59b7afa05174d14c10268171c18bdf2240eb1485ad6851592f1253ddc291f7ae34caad42c18206d339538965c67fb17fc995c0bb509b
+  languageName: node
+  linkType: hard
+
 "case-anything@npm:^3.1.2":
   version: 3.1.2
   resolution: "case-anything@npm:3.1.2"
@@ -4128,6 +4179,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"dayjs@npm:^1.11.19":
+  version: 1.11.19
+  resolution: "dayjs@npm:1.11.19"
+  checksum: 10c0/7d8a6074a343f821f81ea284d700bd34ea6c7abbe8d93bce7aba818948957c1b7f56131702e5e890a5622cdfc05dcebe8aed0b8313bdc6838a594d7846b0b000
+  languageName: node
+  linkType: hard
+
 "debug@npm:4, debug@npm:^4.3.4, debug@npm:^4.3.5, debug@npm:^4.4.3":
   version: 4.4.3
   resolution: "debug@npm:4.4.3"
@@ -4383,6 +4441,13 @@ __metadata:
   dependencies:
     path-type: "npm:^4.0.0"
   checksum: 10c0/dcac00920a4d503e38bb64001acb19df4efc14536ada475725e12f52c16777afdee4db827f55f13a908ee7efc0cb282e2e3dbaeeb98c0993dd93d1802d3bf00c
+  languageName: node
+  linkType: hard
+
+"dlv@npm:^1.1.3":
+  version: 1.1.3
+  resolution: "dlv@npm:1.1.3"
+  checksum: 10c0/03eb4e769f19a027fd5b43b59e8a05e3fd2100ac239ebb0bf9a745de35d449e2f25cfaf3aa3934664551d72856f4ae8b7822016ce5c42c2d27c18ae79429ec42
   languageName: node
   linkType: hard
 
@@ -9760,7 +9825,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"validator@npm:^13.7.0":
+"validator@npm:^13.15.26, validator@npm:^13.7.0":
   version: 13.15.26
   resolution: "validator@npm:13.15.26"
   checksum: 10c0/d66041685c531423f6b514d0481228503b96682fe30ed7925ad77ff3cd08c3983dc94f45e18457e44f62f89027b94a3342009d65421800ce65f6e0d2c6eaf7fc

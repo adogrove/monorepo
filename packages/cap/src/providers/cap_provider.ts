@@ -26,4 +26,16 @@ export default class CapProvider {
       return new CapAdonisAdapter(config, router, resolvedStore)
     })
   }
+
+  async boot() {
+    const cap = await this.app.container.make('cap')
+    await this.#registerVineJSRules(cap)
+  }
+
+  async #registerVineJSRules(cap: CapAdonisAdapter) {
+    if (this.app.usingVineJS) {
+      const { defineValidationRules } = await import('../bindings/vinejs.js')
+      defineValidationRules(cap)
+    }
+  }
 }

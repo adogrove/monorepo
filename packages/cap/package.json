@@ -56,7 +56,13 @@
     ]
   },
   "peerDependencies": {
-    "@adonisjs/core": "^6.2.0"
+    "@adonisjs/core": "^6.2.0",
+    "@vinejs/vine": "^3.0.0 || ^4.0.0"
+  },
+  "peerDependenciesMeta": {
+    "@vinejs/vine": {
+      "optional": true
+    }
   },
   "devDependencies": {
     "@adonisjs/assembler": "^7.8.2",
@@ -67,6 +73,7 @@
     "@japa/runner": "^3.1.4",
     "@swc/core": "^1.6.3",
     "@types/node": "^20.14.5",
+    "@vinejs/vine": "^4.3.0",
     "c8": "^10.1.2",
     "copyfiles": "^2.4.1",
     "del-cli": "^5.1.0",

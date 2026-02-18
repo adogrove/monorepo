@@ -16,13 +16,11 @@ export default class CapProvider {
       const router = await this.app.container.make('router')
       const config = this.app.config.get<AdonisCapConfig>('cap')
 
-      console.log('config', config)
       const resolvedStore =
         'resolver' in config.store
           ? await config.store.resolver(this.app)
           : config.store()
 
-      console.log('resolvedStore', resolvedStore)
       return new CapAdonisAdapter(config, router, resolvedStore)
     })
   }

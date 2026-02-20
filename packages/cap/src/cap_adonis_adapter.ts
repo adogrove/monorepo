@@ -38,10 +38,18 @@ export default class CapAdonisAdapter extends Cap {
 
   public createChallenge(): Promise<{
     challenge: { c: number; s: number; d: number }
-    token?: string
+    token: string
     expires: number
   }> {
-    return super.createChallenge(this.#config.challengeConfig)
+    return super.createChallenge(this.#config.challengeConfig) as Promise<{
+      challenge: {
+        c: number
+        s: number
+        d: number
+      }
+      token: string
+      expires: number
+    }>
   }
 
   public redeemChallenge({ token, solutions }: Solution): Promise<{

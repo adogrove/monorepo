@@ -30,7 +30,7 @@ export class VineCapToken extends BaseLiteralType<string, string, string> {
 }
 
 export function defineValidationRules(cap: Cap) {
-  // Valid rules
+  // valid rule
   async function valid(
     value: unknown,
     options: TokenConfig = { keepToken: false },

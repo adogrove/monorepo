@@ -1,5 +1,11 @@
 # @adogrove/adonis-cap
 
+## 0.1.3
+
+### Patch Changes
+
+- [`3d7acf4`](https://github.com/adogrove/monorepo/commit/3d7acf4bab9dca2f74774010fe290f4148aa055f) Thanks [@Xstoudi](https://github.com/Xstoudi)! - Config stub is now valid TypeScript
+
 ## 0.1.2
 
 ### Patch Changes

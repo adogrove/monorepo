@@ -1,5 +1,11 @@
 # @adogrove/adonis-auditing
 
+## 1.2.2
+
+### Patch Changes
+
+- [`19ea230`](https://github.com/adogrove/monorepo/commit/19ea230eb3641008b2fc617d5cc0e1b8ea0dfd55) Thanks [@Xstoudi](https://github.com/Xstoudi)! - Re-add forgotten missing dependencies
+
 ## 1.2.1
 
 ### Patch Changes

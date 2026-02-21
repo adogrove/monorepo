@@ -1,5 +1,11 @@
 # @adogrove/adonis-cap
 
+## 0.1.1
+
+### Patch Changes
+
+- [`e6fe975`](https://github.com/adogrove/monorepo/commit/e6fe9757d14a13ab8391b3f5e5d3ade7b791583d) Thanks [@Xstoudi](https://github.com/Xstoudi)! - Publish on NPM with project files...
+
 ## 0.1.0
 
 ### Minor Changes

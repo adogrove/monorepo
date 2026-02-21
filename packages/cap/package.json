@@ -6,7 +6,11 @@
     "node": ">=24.6.0"
   },
   "type": "module",
-  "files": [],
+  "files": [
+    "build",
+    "!build/tests",
+    "!build/bin"
+  ],
   "exports": {
     ".": "./build/index.js",
     "./stores": "./build/src/stores/index.js",

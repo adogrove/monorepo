@@ -1,14 +1,13 @@
 {{{
   exports({ to: app.configPath('cap.ts') })
 }}}
-import env from '#start/env'
 import { defineConfig, stores } from '@adogrove/adonis-cap'
 
 const capConfig = defineConfig({
   disableAutoCleanup: false,
   challengeConfig: {
     challengeCount: 50,
-    challengeSize: 32
+    challengeSize: 32,
     challengeDifficulty: 4,
     expiresMs: 600000
   },

@@ -1,7 +1,7 @@
 {
   "name": "@adogrove/adonis-translatable",
   "description": "Translatable fields for Lucid models.",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "engines": {
     "node": ">=20.6.0"
   },

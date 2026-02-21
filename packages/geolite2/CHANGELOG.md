@@ -1,5 +1,11 @@
 # @adogrove/adonis-geolite2
 
+## 2.1.5
+
+### Patch Changes
+
+- [`36ce6d3`](https://github.com/adogrove/monorepo/commit/36ce6d3579cb3430b991f0e1a4f8bdcb38b48ad8) Thanks [@Xstoudi](https://github.com/Xstoudi)! - Update build scripts
+
 ## 2.1.4
 
 ### Patch Changes

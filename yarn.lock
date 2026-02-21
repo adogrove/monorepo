@@ -16,6 +16,7 @@ __metadata:
     "@japa/assert": "npm:^4.2.0"
     "@japa/file-system": "npm:^3.0.0"
     "@japa/runner": "npm:^4.4.1"
+    "@poppinss/utils": "npm:^6.10.1"
     "@swc/core": "npm:^1.15.11"
     "@types/copyfiles": "npm:^2"
     "@types/luxon": "npm:^3"

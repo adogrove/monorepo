@@ -25,11 +25,8 @@
     "copy:templates": "copyfiles \"stubs/**/*.stub\" build",
     "typecheck": "tsc --noEmit",
     "quick:test": "node --import=./tsnode.esm.js --enable-source-maps bin/test.ts",
-    "pretest": "yarn lint && yarn typecheck",
-    "test": "c8 yarn quick:test",
-    "prebuild": "yarn lint && yarn clean",
-    "build": "tsc",
-    "postbuild": "yarn copy:templates",
+    "test": "yarn lint && yarn typecheck && c8 yarn quick:test",
+    "build": "yarn clean && tsc && yarn copy:templates",
     "dev": "tsc --watch",
     "version": "yarn build"
   },

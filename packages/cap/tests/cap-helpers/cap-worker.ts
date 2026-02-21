@@ -1,5 +1,5 @@
+import { performance } from 'node:perf_hooks'
 import { solve_pow } from '@cap.js/wasm'
-import { performance } from 'perf_hooks'
 
 export default function run({
   salt,

@@ -16,7 +16,7 @@ const isCapTokenRule = vine.createRule(isCapToken)
 export class VineCapToken extends BaseLiteralType<string, string, string> {
   [symbols.SUBTYPE] = 'capToken'
 
-  constructor(options?: FieldOptions, validations?: Validation<any>[]) {
+  constructor(options?: FieldOptions, validations?: Validation<unknown>[]) {
     super(options, validations || [])
     this.dataTypeValidator = isCapTokenRule()
   }

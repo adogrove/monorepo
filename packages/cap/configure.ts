@@ -38,6 +38,7 @@ async function storeFlag(
     )
   }
 
+  // biome-ignore lint/style/noNonNullAssertion: never null
   if (!KNOWN_STORES.includes(selectedStore!)) {
     command.exitCode = 1
     command.logger.logError(

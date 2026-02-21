@@ -1,4 +1,4 @@
-import os from 'os'
+import os from 'node:os'
 import { Piscina } from 'piscina'
 
 function prng(seed: string, length: number) {
@@ -59,7 +59,6 @@ export default async function solve(
   })
 
   const results: number[] = new Array(total)
-  let completed = 0
 
   try {
     await Promise.all(
@@ -72,7 +71,6 @@ export default async function solve(
           })
           .then((result) => {
             results[index] = result.nonce
-            completed++
           }),
       ),
     )

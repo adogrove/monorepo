@@ -1,7 +1,7 @@
 import { RouterFactory } from '@adonisjs/core/factories/http'
 import { test } from '@japa/runner'
 import vine from '@vinejs/vine'
-import { defineValidationRules } from '../../../src/bindings/vinejs.js'
+import { defineValidationRules } from '../../../src/bindings/vinejs/binding.js'
 import CapAdonisAdapter from '../../../src/cap_adonis_adapter.js'
 import type { AdonisCapConfig } from '../../../src/config.js'
 import MemoryStore from '../../../src/stores/memory.js'

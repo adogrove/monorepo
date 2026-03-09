@@ -1,10 +1,10 @@
-import type ConfigureCommand from '@adonisjs/core/commands/configure'
+import type Configure from '@adonisjs/core/commands/configure'
 import string from '@adonisjs/core/helpers/string'
 import { stubsRoot } from './stubs/main.js'
 
 export const KNOWN_STORES = ['memory']
 
-export async function configure(command: ConfigureCommand) {
+export async function configure(command: Configure) {
   const store = await storeFlag(command)
   if (store === undefined) {
     return
@@ -21,9 +21,7 @@ export async function configure(command: ConfigureCommand) {
   })
 }
 
-async function storeFlag(
-  command: ConfigureCommand,
-): Promise<string | undefined> {
+async function storeFlag(command: Configure): Promise<string | undefined> {
   let selectedStore: string | undefined = command.parsedFlags.store
 
   if (selectedStore === undefined) {

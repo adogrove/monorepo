@@ -1,14 +1,10 @@
 # Usage
-After installing the package, you can now decorate your translatable fields with the `@translation` decorator.
+After installing the package, you can now decorate your translatable fields with the `@translation` decorator leveraging [model-level overrides](https://lucid.adonisjs.com/docs/schema-classes#model-level-overrides).
 
 ```ts
 import { translation } from '@adogrove/adonis-translatable'
 // [...]
-
-class Post extends BaseModel {
-    @column()
-    declare id: number
-    
+class Post extends PostSchema {
     @translation()
     declare title: Translation
     
@@ -17,7 +13,7 @@ class Post extends BaseModel {
 }
 ```
 
-In your migrations, the translatable fields must be of type json.
+In your migrations, the translatable fields must be a `json` column.
 
 ```ts
 export default class extends BaseSchema {
@@ -70,7 +66,7 @@ post.title = Translation.from({
 })
 ```
 
-`@translation` also allow supplementary options to pass to the inner `@column`.
+`@translation` also allow supplementary options to pass to the inner `@column`, but options must match the schema class decorator.
 
 ```ts
 import { translation } from '@adogrove/adonis-translatable'

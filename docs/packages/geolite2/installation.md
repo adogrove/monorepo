@@ -2,7 +2,7 @@
 
 The `@adogrove/adonis-geolite2` package is available on [npm](https://www.npmjs.com/package/@adogrove/adonis-geolite2).
 You can install it using the following ace command to automagically configure it:
-```
+```sh
 node ace add @adogrove/adonis-geolite2
 ```
 

@@ -1,6 +1,6 @@
 # Configuration
 
-```
+```ts
 import { defineConfig } from '@adogrove/adonis-geolite2'
 
 export default defineConfig({

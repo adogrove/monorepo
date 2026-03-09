@@ -9,6 +9,8 @@ hero:
 features:
   - title: Auditing
     details: Audit your Lucid models with ease.
+  - title: Cap
+    details: Adonis integration for Cap, a lightweight CAPTCHA alternative designed using SHA-256 PoW.
   - title: GeoLite2
     details: MaxMind's GeoLite2 free database support for AdonisJS
   - title: Translatable

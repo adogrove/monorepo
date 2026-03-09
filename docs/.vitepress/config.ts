@@ -133,8 +133,6 @@ const sidebar = sidebarContent.reduce((acc, { text, link, items }) => {
   return acc
 }, {})
 
-console.log(JSON.stringify(sidebar, null, 2))
-
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   title: 'Adogrove',

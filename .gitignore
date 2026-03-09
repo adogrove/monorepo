@@ -1,5 +1,7 @@
 .idea
 node_modules
+coverage
+build
 
 .yarn/*
 !.yarn/cache
@@ -8,3 +10,5 @@ node_modules
 !.yarn/releases
 !.yarn/sdks
 !.yarn/versions
+
+tooling/example

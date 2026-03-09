@@ -1,5 +1,17 @@
 # @adogrove/adonis-cap
 
+## 0.2.0
+
+### Minor Changes
+
+- [`2cfc78b`](https://github.com/adogrove/monorepo/commit/2cfc78b2d99d35f26fdc5875799876da77ce8173) Thanks [@Xstoudi](https://github.com/Xstoudi)! - Cap is now feature-complete and documented
+
+### Patch Changes
+
+- [`d994613`](https://github.com/adogrove/monorepo/commit/d9946136a77b2b3ac4a1004fa992c9ba3f2559e1) Thanks [@Xstoudi](https://github.com/Xstoudi)! - Update package.json informations
+
+- [`e00d746`](https://github.com/adogrove/monorepo/commit/e00d7466600054855dfea0159a76e4a8ba002a50) Thanks [@Xstoudi](https://github.com/Xstoudi)! - Improve config readability
+
 ## 0.1.3
 
 ### Patch Changes

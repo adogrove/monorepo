@@ -9,7 +9,7 @@ const capConfig = defineConfig({
     challengeCount: 50,
     challengeSize: 32,
     challengeDifficulty: 4,
-    expiresMs: 600000
+    expiresMs: 600_000
   },
   {{#if store === 'memory'}}store: stores.memory(),{{/if}}
 })

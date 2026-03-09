@@ -19,7 +19,7 @@ jobs:
         os: [ubuntu-latest]
         node-version:
           - 24.x
-          - 25.x
+          - 25.6.0 # do not use latest because of https://github.com/nodejs/node/issues/61971
     steps:
       - name: ⬇️ Checkout repository
         uses: actions/checkout@v4

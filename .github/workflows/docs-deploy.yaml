@@ -29,7 +29,7 @@ jobs:
       - name: 📖 Setup pages
         uses: actions/configure-pages@v5
       - name: 📦 Install Node dependencies
-        run: yarn install --frozen-lockfile
+        run: yarn install --immutable
       - name: 🔨 Build Vitepress
         run: yarn docs:build
       - name: ⬆️ Upload artifact

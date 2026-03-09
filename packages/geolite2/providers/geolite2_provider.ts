@@ -1,7 +1,7 @@
 import { configProvider } from '@adonisjs/core'
 import { HttpContext } from '@adonisjs/core/http'
 import type { ApplicationService } from '@adonisjs/core/types'
-import { RuntimeException } from '@poppinss/utils'
+import { RuntimeException } from '@poppinss/utils/exception'
 import { GeoLite2 } from '../src/geolite2.js'
 import GeoLite2Manager from '../src/manager.js'
 import type { GeoLite2Config, ResolvedGeoLite2Config } from '../src/types.js'

@@ -75,6 +75,50 @@ const sidebarContent = [
       { text: 'Usage', link: '/packages/translatable/usage' },
     ],
   },
+  {
+    text: 'Cap',
+    link: '/packages/cap',
+    items: [
+      {
+        text: 'Introduction',
+        link: '/packages/cap',
+      },
+      {
+        text: 'Installation',
+        link: '/packages/cap/installation',
+      },
+      {
+        text: 'Configuration',
+        link: '/packages/cap/configuration',
+      },
+      {
+        text: 'Usage',
+        items: [
+          {
+            text: 'Register routes',
+            link: '/packages/cap/usage/register-routes',
+          },
+          {
+            text: 'VineJS bindings',
+            link: '/packages/cap/usage/vinejs-bindings',
+          },
+          {
+            text: 'Service',
+            link: '/packages/cap/usage/service',
+          },
+        ],
+      },
+      {
+        text: 'Digging deeper',
+        items: [
+          {
+            text: 'Custom stores',
+            link: '/packages/cap/digging-deeper/custom-stores',
+          },
+        ],
+      },
+    ],
+  },
 ]
 
 const sidebar = sidebarContent.reduce((acc, { text, link, items }) => {

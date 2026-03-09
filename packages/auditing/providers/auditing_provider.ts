@@ -1,6 +1,6 @@
 import { configProvider } from '@adonisjs/core'
 import type { ApplicationService } from '@adonisjs/core/types'
-import { RuntimeException } from '@poppinss/utils'
+import { RuntimeException } from '@poppinss/utils/exception'
 import AuditingManager from '../src/manager.js'
 import type {
   AuditingConfig,

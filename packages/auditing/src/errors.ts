@@ -1,4 +1,4 @@
-import { createError } from '@poppinss/utils'
+import { createError } from '@poppinss/utils/exception'
 
 export const E_AUDITABLE_WRONG_TYPE = createError<[string, string]>(
   'Expected Auditable type "%s", got "%s" instead.',

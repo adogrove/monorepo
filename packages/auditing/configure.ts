@@ -1,9 +1,9 @@
 import { readFile, writeFile } from 'node:fs/promises'
-import type ConfigureCommand from '@adonisjs/core/commands/configure'
+import type Configure from '@adonisjs/core/commands/configure'
 import { parseTsconfig } from 'get-tsconfig'
 import { stubsRoot } from './stubs/main.js'
 
-export async function configure(command: ConfigureCommand) {
+export async function configure(command: Configure) {
   const codemods = await command.createCodemods()
   // create default migration
   await codemods.makeUsingStub(stubsRoot, 'migration.stub', {

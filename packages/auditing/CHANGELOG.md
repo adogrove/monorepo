@@ -1,5 +1,11 @@
 # @adogrove/adonis-auditing
 
+## 2.0.0
+
+### Major Changes
+
+- [`7e7a3c9`](https://github.com/adogrove/monorepo/commit/7e7a3c922ee58c57fcae6e08b1da62b9b10b715e) Thanks [@Xstoudi](https://github.com/Xstoudi)! - AdonisJS v7 support
+
 ## 1.2.2
 
 ### Patch Changes

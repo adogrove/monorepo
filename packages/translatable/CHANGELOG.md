@@ -1,5 +1,11 @@
 # @adogrove/adonis-translatable
 
+## 2.0.0
+
+### Major Changes
+
+- [`def7005`](https://github.com/adogrove/monorepo/commit/def7005050fcca968b1707ee8ff9f8dbe19d4b2e) Thanks [@Xstoudi](https://github.com/Xstoudi)! - AdonisJS v7 support
+
 ## 1.2.1
 
 ### Patch Changes

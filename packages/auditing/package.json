@@ -1,7 +1,7 @@
 {
   "name": "@adogrove/adonis-auditing",
   "description": "Audit your Lucid models with ease.",
-  "version": "1.2.2",
+  "version": "2.0.0",
   "engines": {
     "node": ">=24.0.0"
   },

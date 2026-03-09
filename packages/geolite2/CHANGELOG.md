@@ -1,5 +1,11 @@
 # @adogrove/adonis-geolite2
 
+## 3.0.0
+
+### Major Changes
+
+- [`f35251d`](https://github.com/adogrove/monorepo/commit/f35251daa659c3a9aa6a73791c15b508c10b4ff3) Thanks [@Xstoudi](https://github.com/Xstoudi)! - AdonisJS v7 support
+
 ## 2.1.5
 
 ### Patch Changes

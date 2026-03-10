@@ -1,5 +1,11 @@
 # @adogrove/adonis-auditing
 
+## 2.1.1
+
+### Patch Changes
+
+- [`95a9231`](https://github.com/adogrove/monorepo/commit/95a9231db49a89affc95fe08c4c8793b76dc388b) Thanks [@Xstoudi](https://github.com/Xstoudi)! - Persist audit records on the same transaction as the audited model
+
 ## 2.1.0
 
 ### Minor Changes

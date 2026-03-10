@@ -1,5 +1,11 @@
 # @adogrove/adonis-auditing
 
+## 2.1.0
+
+### Minor Changes
+
+- [`7d9778c`](https://github.com/adogrove/monorepo/commit/7d9778c6298111cc2859d02e650c9f502adb3b24) Thanks [@Xstoudi](https://github.com/Xstoudi)! - Add `warnOnMissingContext` config key to silence missing http context warning logs
+
 ## 2.0.0
 
 ### Major Changes

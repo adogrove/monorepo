@@ -19,10 +19,10 @@ export default capConfig
 ```
 
 ## Reference
-### disableAutoCleanup
+### `disableAutoCleanup`
 When set to `false` (default), expired challenges and tokens are automatically cleaned up. Set to `true` if you want to handle cleanup yourself.
 
-### challengeConfig
+### `challengeConfig`
 Configuration passed to the underlying Cap server for challenge generation.
 
 - **challengeCount**: The number of challenges to generate.
@@ -30,7 +30,7 @@ Configuration passed to the underlying Cap server for challenge generation.
 - **challengeDifficulty**: The difficulty of the proof-of-work challenge. Higher values require more computational effort from the client.
 - **expiresMs**: How long (in seconds) a challenge remains valid before it expires.
 
-### store
+### `store`
 The storage backend used to persist challenges and tokens. Use one of the built-in stores or provide your own.
 
 

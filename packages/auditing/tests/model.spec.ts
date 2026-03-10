@@ -4,6 +4,7 @@ import { BaseModel, column } from '@adonisjs/lucid/orm'
 import { test } from '@japa/runner'
 import Audit from '../src/audit.js'
 import Auditable from '../src/auditable/mixin.js'
+import { E_AUDITABLE_CANNOT_REVERT } from '../src/errors.js'
 import { resetTables, setupApp } from './helper.js'
 
 test.group('BaseModel with auditable', () => {
@@ -304,6 +305,43 @@ test.group('BaseModel with auditable', () => {
 
     await book.revert()
     assert.equal(book.name, 'The Hobbit')
+  })
+
+  test('revert an update, but there is nothing to revert ', async ({
+    assert,
+  }) => {
+    const { db } = await setupApp()
+    await resetTables(db)
+
+    let bookId: number = 0
+    {
+      class Book extends BaseModel {
+        @column()
+        declare id: number
+
+        @column()
+        declare name: string
+      }
+
+      const book = new Book()
+      book.name = 'The Hobbit'
+      await book.save()
+      bookId = book.id
+    }
+    {
+      class Book extends compose(BaseModel, Auditable) {
+        @column()
+        declare id: number
+
+        @column()
+        declare name: string
+      }
+
+      const book = await Book.findOrFail(bookId)
+      assert.rejects(async () => await book.revert(), E_AUDITABLE_CANNOT_REVERT)
+
+      assert.equal(book.name, 'The Hobbit')
+    }
   })
 
   test('audit on the same trx - commit', async ({ assert }) => {

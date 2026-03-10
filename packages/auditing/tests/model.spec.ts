@@ -305,4 +305,59 @@ test.group('BaseModel with auditable', () => {
     await book.revert()
     assert.equal(book.name, 'The Hobbit')
   })
+
+  test('audit on the same trx - commit', async ({ assert }) => {
+    const { db } = await setupApp()
+    await resetTables(db)
+
+    class Book extends compose(BaseModel, Auditable) {
+      @column()
+      declare id: number
+
+      @column()
+      declare name: string
+    }
+
+    const book = new Book()
+    book.name = 'The Hobbit'
+    await book.save()
+
+    assert.lengthOf(await book.audits(), 1)
+
+    await db.transaction(async (trx) => {
+      book.name = 'The Lord of the Rings'
+      book.useTransaction(trx)
+      await book.save()
+    })
+
+    assert.lengthOf(await book.audits(), 2)
+  })
+
+  test('audit on the same trx - rollback', async ({ assert }) => {
+    const { db } = await setupApp()
+    await resetTables(db)
+
+    class Book extends compose(BaseModel, Auditable) {
+      @column()
+      declare id: number
+
+      @column()
+      declare name: string
+    }
+
+    const book = new Book()
+    book.name = 'The Hobbit'
+    await book.save()
+
+    assert.lengthOf(await book.audits(), 1)
+
+    await db.transaction(async (trx) => {
+      book.name = 'The Lord of the Rings'
+      book.useTransaction(trx)
+      await book.save()
+      await trx.rollback()
+    })
+
+    assert.lengthOf(await book.audits(), 1)
+  })
 })

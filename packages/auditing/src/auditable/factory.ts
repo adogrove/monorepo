@@ -148,6 +148,11 @@ export function withAuditable() {
         audit.oldValues = event === 'create' ? null : this.$auditValuesToSave
         audit.newValues = event === 'delete' ? null : this.$attributes
         audit.metadata = metadata
+
+        if (modelInstance.$trx) {
+          audit.useTransaction(modelInstance.$trx)
+        }
+
         await audit.save()
 
         await emitter.emit(`audit:${event}`, audit.id)

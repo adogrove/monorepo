@@ -9,11 +9,13 @@ export interface Resolver {
 }
 
 export interface AuditingConfig {
+  warnOnMissingContext?: boolean
   userResolver: () => Promise<{ default: new () => UserResolver }>
   resolvers: Record<string, () => Promise<{ default: new () => Resolver }>>
 }
 
 export interface ResolvedAuditingConfig {
+  warnOnMissingContext: boolean
   userResolver: UserResolver
   resolvers: Record<string, Resolver>
 }

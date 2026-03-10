@@ -14,6 +14,7 @@ export function defineConfig(
       }),
     )
     return {
+      warnOnMissingContext: config.warnOnMissingContext ?? true,
       userResolver: new userResolver.default(),
       resolvers: Object.fromEntries(resolversMap),
     }

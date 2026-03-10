@@ -10,10 +10,13 @@ export default class AuditingManager implements AuditingService {
 
   async getUserForContext(): Promise<{ id: string; type: string } | null> {
     const ctx = HttpContext.get()
-    if (!ctx) {
-      this.logger.warn(
-        'Cannot get current context, did you forget to enable asyncLocalStorage?',
-      )
+    if (ctx === null) {
+      if (this.config.warnOnMissingContext) {
+        this.logger.warn(
+          'Cannot get current context, did you forget to enable asyncLocalStorage?',
+        )
+      }
+
       return null
     }
 
@@ -22,10 +25,13 @@ export default class AuditingManager implements AuditingService {
 
   async getMetadataForContext(): Promise<Record<string, unknown>> {
     const ctx = HttpContext.get()
-    if (!ctx) {
-      this.logger.warn(
-        'Cannot get current context, did you forget to enable asyncLocalStorage?',
-      )
+    if (ctx === null) {
+      if (this.config.warnOnMissingContext) {
+        this.logger.warn(
+          'Cannot get current context, did you forget to enable asyncLocalStorage?',
+        )
+      }
+
       return {}
     }
 

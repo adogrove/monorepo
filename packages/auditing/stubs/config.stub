@@ -4,6 +4,7 @@
 import { defineConfig } from '@adogrove/adonis-auditing'
 
 export default defineConfig({
+  warnOnMissingContext: true,
   userResolver: () => import('#audit_resolvers/user_resolver'),
   resolvers: {
     ip_address: () => import('#audit_resolvers/ip_address_resolver'),
